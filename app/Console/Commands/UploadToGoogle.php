@@ -74,6 +74,5 @@ class UploadToGoogle extends Command
             $albumRecord->save();
             sleep(10);
         }
-        //AMPTTLdz6Q0-0a1Q2itBNglS7I0s3LfsNzYaJHnzRXLoiNeSYtj7KIIbpvxr1IWy-YvIVUmr6Eur
     }
 }

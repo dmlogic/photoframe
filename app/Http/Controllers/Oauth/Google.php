@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Oauth;
 
-use Cache;
 use Google\Auth\OAuth2;
 use Illuminate\Http\Request;
 use App\GetsGoogleCredentials;
@@ -15,16 +14,6 @@ class Google extends Controller
     use GetsGoogleCredentials;
 
     protected $scope = ['https://www.googleapis.com/auth/photoslibrary'];
-
-    public function test()
-    {
-        if(!$creds = $this->getCredentials()) {
-            return redirect('/oauth/start');
-        }
-        $photosLibraryClient = new PhotosLibraryClient(['credentials' => $creds]);
-        $pagedResponse = $photosLibraryClient->listAlbums();
-        dd($pagedResponse);
-    }
 
     public function start()
     {
@@ -52,8 +41,6 @@ class Google extends Controller
         file_put_contents(base_path('google_access.json'),serialize($credentials));
         return 'Credentials saved to cache';
     }
-
-
 
     protected function getClient($callback = '/oauth/callback')
     {
