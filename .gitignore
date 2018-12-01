@@ -1,0 +1,10 @@
+/storage/*.key
+/vendor
+/.vagrant
+Homestead.json
+Homestead.yaml
+.env
+google_access.json
+google_creds.json
+todo.txt
+database/database.sqlite
